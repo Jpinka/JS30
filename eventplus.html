@@ -1,0 +1,72 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Understanding JavaScript's Capture</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body class="bod">
+    <div class="one">
+        <div class="two">
+            <div class="three">
+            </div>
+        </div>
+    </div>
+
+    <style>
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {box-sizing: inherit; }
+
+        div {
+            width:100%;
+            padding:100px;
+        }
+
+        .one {
+            background: thistle;
+        }
+
+        .two {
+            background:mistyrose;
+        }
+
+        .three {
+            background: coral
+        }
+
+
+</style>
+
+  <script src="js/scripts.js">
+    const divs = document.querySelectorAll('div');
+
+    function logText(e) {
+        console.log(this.classList.value)
+        // e.stopPopagation(); // stop bubbling
+    }
+    divs.forEach(div => div.addEventListener ('click', logText, {
+        capture: fasle,
+        once: true
+
+    
+    }));
+
+    button.addEventListener('click', () => {
+        console.log('Click');
+    }, {
+        once: true
+    });
+
+
+</script>
+</body>
+</html>
